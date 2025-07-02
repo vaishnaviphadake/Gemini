@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import "./App.css";
-import { URL } from "./utils/constants";
+const URL = import.meta.env.VITE_URL;
 import Answer from "./components/Answer";
 
 function App() {
@@ -30,8 +30,12 @@ function App() {
 
 		let res = await fetch(URL, {
 			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
 			body: JSON.stringify(payload),
 		});
+
 		res = await res.json();
 		let response = res?.candidates[0]?.content?.parts[0]?.text;
 		let dataString = response
