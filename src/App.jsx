@@ -65,7 +65,13 @@ function App() {
 					} w-full md:w-1/5 p-4 border-r border-zinc-700`}
 				>
 					<div className="text-xl font-bold mb-2 flex justify-between items-center ">
-						<h2 className="text-zinc-200 text-3xl sm:text-lg">GPT Clone</h2>
+						<h2
+							className={`text-zinc-200 text-3xl sm:text-lg ${
+								darkMode ? "text-white" : "text-zinc-700"
+							}`}
+						>
+							Gemini
+						</h2>
 						<button
 							onClick={() => setDarkMode((prev) => !prev)}
 							title="Toggle Theme"
@@ -132,14 +138,14 @@ function App() {
 							<input
 								type="text"
 								placeholder="Ask me anything..."
-								className="flex-1 bg-transparent p-2 outline-none"
+								className="flex-1 bg-transparent p-2 outline-none "
 								value={query}
 								onChange={(event) => setQuery(event.target.value)}
 								onKeyDown={(e) => e.key === "Enter" && askQuery()}
 							/>
 							<button
 								onClick={askQuery}
-								className="bg-zinc-600 hover:bg-zinc-700 text-white px-6 py-2 rounded-full"
+								className="bg-zinc-600 hover:bg-zinc-700 text-white px-5 py-2 mr-1 rounded-full"
 							>
 								Ask
 							</button>
